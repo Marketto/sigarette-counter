@@ -1,0 +1,28 @@
+<div
+  class="d-flex flex-column py-2 justify-content-between h-100 w-100 text-center"
+>
+  <div class="h2">{{ smokedToday$ | async }} 🚬</div>
+  <div class="h4">
+    {{ lastSigaretteElapsedTime$ | async }}min dall'ultima sigaretta
+  </div>
+  <div class="d-flex justify-content-between">
+    <button
+      class="btn btn-outline-secondary"
+      *ngIf="isSpareTobacco$ | async"
+      (click)="outOfTobacco()"
+    >
+      🍂
+    </button>
+    <button class="btn btn-outline-warning" (click)="remove()">➖</button>
+    <button class="btn btn-warning" (click)="add()" (hold)="advancedAdd()">
+      ➕
+    </button>
+    <button
+      class="btn btn-outline-secondary"
+      routerLink="settings"
+      (hold)="stats()"
+    >
+      ⚙️
+    </button>
+  </div>
+</div>
