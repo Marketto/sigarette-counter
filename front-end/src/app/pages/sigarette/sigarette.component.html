@@ -1,0 +1,56 @@
+<div class="h-100 d-flex flex-column justify-content-between">
+  <form class="w-100" #form="ngForm">
+    <div class="row">
+      <div class="form-group col-12">
+        <label for="sigaretteQuantity">Data</label>
+        <input
+          name="date"
+          type="date"
+          class="form-control"
+          [ngModel]="date | date : 'YYYY-MM-dd'"
+          (ngModelChange)="setDate($event)"
+          required
+        />
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="form-group col-12">
+        <label for="sigaretteQuantity">Ora</label>
+        <input
+          name="time"
+          type="time"
+          class="form-control"
+          [ngModel]="date | date : 'HH:mm'"
+          (ngModelChange)="setTime($event)"
+          [disabled]="!date"
+          required
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="form-group col-12">
+        <div class="form-check">
+          <input
+            name="type"
+            type="checkbox"
+            [(ngModel)]="outOfTobacco"
+            class="form-check-input"
+          />
+          <label class="form-check-label" for="typeSpare"
+            >Tabacco esaurito</label
+          >
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-secondary" [routerLink]="['..']">Annulla</button>
+    <button
+      class="btn btn-warning"
+      [disabled]="form.invalid"
+      (click)="addSigarette()"
+    >
+      OK
+    </button>
+  </div>
+</div>

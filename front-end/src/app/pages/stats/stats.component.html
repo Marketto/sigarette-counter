@@ -1,0 +1,33 @@
+<div class="h-100 d-flex flex-column justify-content-between">
+  <div class="w-100">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between">
+        <span> Tempo tra sigarette: </span>
+        <strong>0 min</strong>
+      </div>
+      <div class="col-12 d-flex justify-content-between">
+        <span> Media giornaliera: </span>
+        <strong>{{ 0 }} al giorno</strong>
+      </div>
+      <div class="col-12 d-flex justify-content-between">
+        <span> Costo sigaretta: </span>
+        <strong>{{ 0 | currency : "€" }} </strong>
+      </div>
+      <div class="col-12 d-flex justify-content-between">
+        <span> Costo giornaliero: </span>
+        <strong>{{ 0 | currency : "€" }} </strong>
+      </div>
+      <div class="col-12 d-flex justify-content-between">
+        <span> Costo settimanale: </span>
+        <strong>{{ 0 | currency : "€" }} </strong>
+      </div>
+      <div class="col-12 d-flex justify-content-between">
+        <span> Costo mensile: </span>
+        <strong>{{ 0 | currency : "€" }} </strong>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-secondary" [routerLink]="['..']">Annulla</button>
+  </div>
+</div>

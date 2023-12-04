@@ -1,0 +1,128 @@
+<div class="d-flex flex-column justify-content-between h-100">
+  <form class="w-100" [ngSwitch]="settings.type" #form="ngForm">
+    <div class="row">
+      <div class="form-group col-6">
+        <div class="form-check">
+          <input
+            name="type"
+            type="radio"
+            [(ngModel)]="settings.type"
+            class="form-check-input"
+            [value]="SigaretteType.Package"
+            required
+          />
+          <label class="form-check-label" for="typeBox">Pacchetto</label>
+        </div>
+      </div>
+      <div class="form-group col-6">
+        <div class="form-check">
+          <input
+            name="type"
+            type="radio"
+            [(ngModel)]="settings.type"
+            class="form-check-input"
+            [value]="SigaretteType.Bag"
+            required
+          />
+          <label class="form-check-label" for="typeSpare">Tabacco</label>
+        </div>
+      </div>
+    </div>
+    <div class="row" [ngSwitch]="settings.type">
+      <div class="form-group col-6" *ngSwitchCase="SigaretteType.Package">
+        <label for="sigaretteQuantity">N° Sigarette</label>
+        <input
+          name="sigaretteQuantity"
+          type="number"
+          [(ngModel)]="settings.quantity"
+          class="form-control"
+          step="1"
+          placeholder="20"
+          required
+        />
+      </div>
+      <div class="form-group col-6" *ngSwitchCase="SigaretteType.Bag">
+        <label for="tobaccoQuantity">Peso (gr)</label>
+        <input
+          name="tobaccoQuantity"
+          type="number"
+          [(ngModel)]="settings.quantity"
+          class="form-control"
+          step="1"
+          placeholder="25"
+          required
+        />
+      </div>
+      <div class="form-group col-6">
+        <label for="sigarettePrice">Costo</label>
+        <input
+          name="sigarettePrice"
+          type="number"
+          [(ngModel)]="settings.cost"
+          class="form-control"
+          step="0.01"
+          placeholder="7"
+          required
+        />
+      </div>
+    </div>
+    <div class="row" *ngSwitchCase="SigaretteType.Bag">
+      <div class="form-group col-6">
+        <label for="filtersQuantity">N° filtri</label>
+        <input
+          name="filtersQuantity"
+          type="number"
+          [(ngModel)]="settings.filters.quantity"
+          class="form-control"
+          step="1"
+          placeholder="100"
+          required
+        />
+      </div>
+      <div class="form-group col-6">
+        <label for="filtersPrice">Costo</label>
+        <input
+          name="filtersPrice"
+          type="number"
+          [(ngModel)]="settings.filters.cost"
+          class="form-control"
+          step="0.01"
+          placeholder="2"
+          required
+        />
+      </div>
+    </div>
+    <div class="row" *ngSwitchCase="SigaretteType.Bag">
+      <div class="form-group col-6">
+        <label for="paperQuantity">N° cartine</label>
+        <input
+          name="paperQuantity"
+          type="number"
+          [(ngModel)]="settings.papers.quantity"
+          class="form-control"
+          step="1"
+          placeholder="100"
+          required
+        />
+      </div>
+      <div class="form-group col-6">
+        <label for="paperPrice">Costo</label>
+        <input
+          name="paperPrice"
+          type="number"
+          [(ngModel)]="settings.papers.cost"
+          class="form-control"
+          step="0.01"
+          placeholder="2"
+          required
+        />
+      </div>
+    </div>
+  </form>
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-secondary" [routerLink]="['..']">Annulla</button>
+    <button class="btn btn-warning" [disabled]="form.invalid" (click)="save()">
+      OK
+    </button>
+  </div>
+</div>

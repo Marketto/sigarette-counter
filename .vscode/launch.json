@@ -1,0 +1,19 @@
+{
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Front end",
+			"type": "chrome",
+			"request": "launch",
+			"preLaunchTask": "npm: start-fe",
+			"url": "http://localhost:4200/"
+		},
+		{
+			"name": "Back end",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceFolder}\\back-end\\app.js"
+		}
+	]
+}
